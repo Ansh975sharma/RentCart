@@ -1,5 +1,5 @@
 
-
+import Product from "./Product";
 
 import { FaArrowRight  } from "react-icons/fa";
 
@@ -21,6 +21,7 @@ function Home() {
 <Herosection/>
 
 <Category/>
+<Product/>
 
 </div>
 

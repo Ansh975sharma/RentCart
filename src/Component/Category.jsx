@@ -4,7 +4,18 @@ import books from "../assets/books.jpg"
 import Living from "../assets/Living.jpg"
 import Shoping from "../assets/Shoping.jpg"
 import Sports from "../assets/Sports.jpg"
+import { useState } from 'react'
+import { LuArrowBigRight } from "react-icons/lu"
+import {useQuery} from "@tanstack/react-query"
+import { fetchCategory } from "../API/Api"
 function Category() {
+    const[categoryData,setCategoryData]=useState("")
+ 
+   const {data}= useQuery({
+        queryKey:['post',categoryData],
+        queryFn:()=>fetchCategory(categoryData)
+    })
+console.log(data)
   return (
   
     <div>
@@ -19,6 +30,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Electronics</h1>
                     <p>Gudgets& tech</p>
+                  <button onClick={()=>setCategoryData("smartphones")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
@@ -28,6 +40,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Beauty</h1>
                     <p>CAre & Skincare</p>
+                      <button onClick={()=>setCategoryData("beauty")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
@@ -36,6 +49,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Books</h1>
                     <p>Read & discover</p>
+                      <button onClick={()=>setCategoryData("mens-shirts")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
@@ -44,6 +58,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Sports</h1>
                     <p>Fitness & outdoor</p>
+                      <button onClick={()=>setCategoryData("sports-accessories")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
@@ -52,6 +67,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Fashion</h1>
                     <p>Style & clothing</p>
+                      <button onClick={()=>setCategoryData("womens-dresses")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
@@ -60,6 +76,7 @@ function Category() {
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Home & Living</h1>
                     <p>Make home better</p>
+                      <button onClick={()=>setCategoryData("furniture")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
