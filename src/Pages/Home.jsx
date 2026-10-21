@@ -1,11 +1,9 @@
 
 import Product from "./Product";
-
-import { FaArrowRight  } from "react-icons/fa";
-
-  import Herosection from "../Component/Herosection";
+ import Herosection from "../Component/Herosection";
 import Navbar from "../Component/Navbar"
 import Category from "../Component/Category"
+import FeaturedProduct from "../Component/featuredProduct";
 
 function Home() {
 
@@ -22,6 +20,7 @@ function Home() {
 
 <Category/>
 <Product/>
+<FeaturedProduct/>
 
 </div>
 

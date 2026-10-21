@@ -5,7 +5,7 @@ const Api=axios.create({
 })
 
 export const fetchApi= async ()=>{
-const res=await Api.get("/products")
+const res=await Api.get("/products?limit=6")
 return res.data
 
 }
@@ -13,3 +13,4 @@ export const fetchCategory=async (category)=>{
  const res= await Api.get(`/product/category/${category}`)
  return res.data
 }
+
