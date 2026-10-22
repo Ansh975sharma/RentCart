@@ -14,3 +14,7 @@ export const fetchCategory=async (category)=>{
  return res.data
 }
 
+export const discountProduct=async (category)=>{
+    const res=await Api.get(`/products/category/${category}?limit=1`)
+    return res.data
+}

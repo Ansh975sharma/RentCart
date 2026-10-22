@@ -29,7 +29,7 @@ const {data, isLoading,isError}= useQuery({
         <p className="text-gray-400">Handpicked products just for you</p>
     </div>
 
-    <div className=" grid grid-cols-2 md:grid-cols-4">
+    <div className=" grid grid-cols-2 md:grid-cols-4 ">
 
 
 {
@@ -39,21 +39,22 @@ const {data, isLoading,isError}= useQuery({
             
           
                
-                    <div className=" shadow-md rounded-md w-fit gap-3 p-2   mx-6">
-                        <div clasName="bg-blue-500 rounded-md">
+                    <div className=" shadow-md rounded-md w-fit gap-3 p-2 hover:shadow-2xl   mx-6">
+                      <div className="bg-black/6 rounded-md">
                 <img src={item.thumbnail} alt="images" width="200px"   className="object-fit  "/>
-                  <p className="flex  gap-2"><FaStar className="my-1 text-amber-300 "/><span>{item.rating}</span></p>
-               </div>
+                  <p className="flex mx-2 gap-2"><FaStar className="my-1 text-amber-300 "/><span>{item.rating}</span></p>
+              </div> 
 
 
                 <div className="mx-5">
 
               
-               <p>{item.category}</p>
-                <p>{item.title}</p>
-            
-               <p>${item.price}</p>
-             
+               <p className="font-medium">{item.category}</p>
+                <p className="font-medium">{item.title}</p>
+            <div className="flex justify-between">
+               <p className="font-medium">${item.price}</p>
+               <p className="text-green-600">{item.discountPercentage}%off</p>
+             </div>
                </div>
                  <button className="bg-blue-500 rounded-md w-full text-white px-3 py-1 ">Add to cart</button>
               </div>

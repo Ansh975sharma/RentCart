@@ -4,6 +4,8 @@ import Product from "./Product";
 import Navbar from "../Component/Navbar"
 import Category from "../Component/Category"
 import FeaturedProduct from "../Component/featuredProduct";
+import DiscountProducts from "../Component/discountProducts";
+import Footer from "../Component/Footer";
 
 function Home() {
 
@@ -22,6 +24,8 @@ function Home() {
 <Product/>
 <FeaturedProduct/>
 
+<DiscountProducts/>
+<Footer/>
 </div>
 
 

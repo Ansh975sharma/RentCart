@@ -25,58 +25,79 @@ console.log(data)
             <p className="text-gray-400">Explore our wide range of Products</p>
             </div>
             <div className="grid md:grid-cols-3">
-                <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md">
+                {/* <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md">
                     <img className="rounded-md" src={Electronic} alt="Electronic-gadgets" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Electronics</h1>
                     <p>Gudgets& tech</p>
-                  <button onClick={()=>setCategoryData("smartphones")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
+                  <button onClick={()=>setCategoryData("smartphones")}><LuArrowBigRight /></button>
+                    </div> */}
+                   <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md relative">
+
+  <img
+    className="rounded-md"
+    src={Electronic}
+    alt="Electronic-gadgets"
+    width="150"
+  />
+
+  <div className="my-4">
+    <h1 className="text-xl font-medium">Electronics</h1>
+    <p>Gadgets & tech</p>
+
+    <button
+      className="absolute bottom-3 right-3"
+      onClick={() => setCategoryData("smartphones")}
+    >
+      <LuArrowBigRight  />
+    </button>
+  </div>
+
+</div>
+                {/* </div> */}
                
-                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 rounded-md">
+                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Beauty} alt="Beauty" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Beauty</h1>
                     <p>CAre & Skincare</p>
-                      <button onClick={()=>setCategoryData("beauty")}><LuArrowBigRight/></button>
+                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("beauty")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
-                <div className="flex my-3 bg-green-100 gap-4 p-3 mx-3 rounded-md">
+                <div className="flex my-3 bg-green-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={books} alt="books" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Books</h1>
                     <p>Read & discover</p>
-                      <button onClick={()=>setCategoryData("mens-shirts")}><LuArrowBigRight/></button>
+                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("mens-shirts")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
-                <div className="flex my-3 bg-gray-100 gap-4 p-3 mx-3 rounded-md">
+                <div className="flex my-3 bg-gray-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Sports} alt="Sports" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Sports</h1>
                     <p>Fitness & outdoor</p>
-                      <button onClick={()=>setCategoryData("sports-accessories")}><LuArrowBigRight/></button>
+                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("sports-accessories")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
-                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 rounded-md">
+                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Shoping} alt="Shopping" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Fashion</h1>
                     <p>Style & clothing</p>
-                      <button onClick={()=>setCategoryData("womens-dresses")}><LuArrowBigRight/></button>
+                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("womens-dresses")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
-                <div className="flex my-3 bg-yellow-100 gap-4 p-3 mx-3 rounded-md">
+                <div className="flex my-3 bg-yellow-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Living} alt="Home&Living" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Home & Living</h1>
                     <p>Make home better</p>
-                      <button onClick={()=>setCategoryData("furniture")}><LuArrowBigRight/></button>
+                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("furniture")}><LuArrowBigRight/></button>
                     </div>
                    
                 </div>
