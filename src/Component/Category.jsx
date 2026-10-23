@@ -8,30 +8,38 @@ import { useState } from 'react'
 import { LuArrowBigRight } from "react-icons/lu"
 import {useQuery} from "@tanstack/react-query"
 import { fetchCategory } from "../API/Api"
+
 function Category() {
     const[categoryData,setCategoryData]=useState("")
  
-   const {data}= useQuery({
+   const {data , isLoading,isError,error}= useQuery({
         queryKey:['post',categoryData],
-        queryFn:()=>fetchCategory(categoryData)
+        queryFn:()=>fetchCategory(categoryData),
+          enabled: Boolean(categoryData)
     })
-console.log(data)
+    console.log(data)
+  if(isLoading){
+    return(
+      <p>Loading...</p>
+    )
+  }
+  if(isError){
+    return  <p>Error: {error.message}</p>
+    
+  }
+
   return (
   
     <div>
+
+    
          <div className="mx-2">
             <div className="mx-3">
             <h1 className="text-2xl font-bold text-blue-950">Shop by Category</h1>
             <p className="text-gray-400">Explore our wide range of Products</p>
             </div>
             <div className="grid md:grid-cols-3">
-                {/* <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md">
-                    <img className="rounded-md" src={Electronic} alt="Electronic-gadgets" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Electronics</h1>
-                    <p>Gudgets& tech</p>
-                  <button onClick={()=>setCategoryData("smartphones")}><LuArrowBigRight /></button>
-                    </div> */}
+             
                    <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md relative">
 
   <img
@@ -60,7 +68,7 @@ console.log(data)
                     <img className="rounded-md" src={Beauty} alt="Beauty" width='100' />
                     <div className="my-4">
                     <h1 className="text-xl font-medium">Beauty</h1>
-                    <p>CAre & Skincare</p>
+                    <p>Care & Skincare</p>
                       <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("beauty")}><LuArrowBigRight/></button>
                     </div>
                    
@@ -103,6 +111,7 @@ console.log(data)
                 </div>
             </div>
          </div>
+    
          </div>
   
   )

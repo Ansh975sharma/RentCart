@@ -10,7 +10,7 @@ return res.data
 
 }
 export const fetchCategory=async (category)=>{
- const res= await Api.get(`/product/category/${category}`)
+ const res= await Api.get(`/products/category/${category}`)
  return res.data
 }
 

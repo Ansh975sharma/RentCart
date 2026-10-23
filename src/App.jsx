@@ -1,7 +1,7 @@
  import { Route,Routes,NavLink } from "react-router"
  import {QueryClientProvider,QueryClient} from "@tanstack/react-query"
  import Home from "./Pages/Home"
-
+import Description from "./Component/Description"
  function App() {
 const query = new QueryClient()
 
@@ -12,6 +12,7 @@ const query = new QueryClient()
       <Routes>
       
         <Route path="/" element={<Home/>}></Route>
+      <Route path="/description" element={<Description/>}></Route>
       </Routes>
       </QueryClientProvider>
       </div>

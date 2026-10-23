@@ -7,19 +7,14 @@ import FeaturedProduct from "../Component/featuredProduct";
 import DiscountProducts from "../Component/discountProducts";
 import Footer from "../Component/Footer";
 
+
 function Home() {
 
   return (
 
-    <div>
-       
-     
+    <div>    
 <Navbar/>
-
-
-
 <Herosection/>
-
 <Category/>
 <Product/>
 <FeaturedProduct/>
