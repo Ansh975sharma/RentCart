@@ -12,7 +12,7 @@ const query = new QueryClient()
       <Routes>
       
         <Route path="/" element={<Home/>}></Route>
-      <Route path="/description" element={<Description/>}></Route>
+      <Route path="/description/:category" element={<Description/>}></Route>
       </Routes>
       </QueryClientProvider>
       </div>

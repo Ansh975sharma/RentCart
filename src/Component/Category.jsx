@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { LuArrowBigRight } from "react-icons/lu"
 import {useQuery} from "@tanstack/react-query"
 import { fetchCategory } from "../API/Api"
+import { NavLink } from "react-router"
 
 function Category() {
     const[categoryData,setCategoryData]=useState("")
@@ -17,7 +18,7 @@ function Category() {
         queryFn:()=>fetchCategory(categoryData),
           enabled: Boolean(categoryData)
     })
-    console.log(data)
+    
   if(isLoading){
     return(
       <p>Loading...</p>
@@ -29,7 +30,7 @@ function Category() {
   }
 
   return (
-  
+
     <div>
 
     
@@ -39,14 +40,14 @@ function Category() {
             <p className="text-gray-400">Explore our wide range of Products</p>
             </div>
             <div className="grid md:grid-cols-3">
-             
+               <NavLink to={`/description/smartphones`}>
                    <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md relative">
 
   <img
     className="rounded-md"
     src={Electronic}
     alt="Electronic-gadgets"
-    width="150"
+    width="100"
   />
 
   <div className="my-4">
@@ -62,8 +63,9 @@ function Category() {
   </div>
 
 </div>
+</NavLink>
                 {/* </div> */}
-               
+                 <NavLink to={`/description/beauty`}>
                 <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Beauty} alt="Beauty" width='100' />
                     <div className="my-4">
@@ -73,6 +75,9 @@ function Category() {
                     </div>
                    
                 </div>
+                </NavLink>
+                
+                  <NavLink to={`/description/mens-shirts`}>
                 <div className="flex my-3 bg-green-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={books} alt="books" width='100' />
                     <div className="my-4">
@@ -82,6 +87,8 @@ function Category() {
                     </div>
                    
                 </div>
+               </NavLink>
+                 <NavLink to={`/description/sports-accessories`}>
                 <div className="flex my-3 bg-gray-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Sports} alt="Sports" width='100' />
                     <div className="my-4">
@@ -91,6 +98,9 @@ function Category() {
                     </div>
                    
                 </div>
+                </NavLink>
+
+                 <NavLink to={`/description/womens-dresses`}>
                 <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Shoping} alt="Shopping" width='100' />
                     <div className="my-4">
@@ -100,6 +110,8 @@ function Category() {
                     </div>
                    
                 </div>
+                </NavLink>
+                    <NavLink to={`/description/furniture`}>
                 <div className="flex my-3 bg-yellow-100 gap-4 p-3 mx-3 relative rounded-md">
                     <img className="rounded-md" src={Living} alt="Home&Living" width='100' />
                     <div className="my-4">
@@ -109,11 +121,12 @@ function Category() {
                     </div>
                    
                 </div>
+                </NavLink>
             </div>
          </div>
     
          </div>
-  
+
   )
 }
 
