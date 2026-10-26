@@ -1,133 +1,114 @@
-import Electronic from "../assets/Electronic.jpg"
-import Beauty from "../assets/Beauty.jpg"
-import books from "../assets/books.jpg"
-import Living from "../assets/Living.jpg"
-import Shoping from "../assets/Shoping.jpg"
-import Sports from "../assets/Sports.jpg"
-import { useState } from 'react'
-import { LuArrowBigRight } from "react-icons/lu"
-import {useQuery} from "@tanstack/react-query"
-import { fetchCategory } from "../API/Api"
-import { NavLink } from "react-router"
+
+import Electronic from "../assets/Electronic.jpg";
+import Beauty from "../assets/Beauty.jpg";
+import books from "../assets/books.jpg";
+import Living from "../assets/Living.jpg";
+import Shoping from "../assets/Shoping.jpg";
+import Sports from "../assets/Sports.jpg";
+import { LuArrowBigRight } from "react-icons/lu";
+import { NavLink } from "react-router";
 
 function Category() {
-    const[categoryData,setCategoryData]=useState("")
- 
-   const {data , isLoading,isError,error}= useQuery({
-        queryKey:['post',categoryData],
-        queryFn:()=>fetchCategory(categoryData),
-          enabled: Boolean(categoryData)
-    })
-    
-  if(isLoading){
-    return(
-      <p>Loading...</p>
-    )
-  }
-  if(isError){
-    return  <p>Error: {error.message}</p>
-    
-  }
-
   return (
+    <div className=" ring-1 ring-gray-100 rounded-md mx-5 my-10 shadow-sm p-2">
+      <div className="mx-3 mb-4">
+        <h1 className="text-2xl font-bold text-blue-950">
+          Shop by Category
+        </h1>
+        <p className="text-gray-400">
+          Explore our wide range of Products
+        </p>
+      </div>
 
-    <div>
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
 
-    
-         <div className="mx-2">
-            <div className="mx-3">
-            <h1 className="text-2xl font-bold text-blue-950">Shop by Category</h1>
-            <p className="text-gray-400">Explore our wide range of Products</p>
+        <NavLink to="/description/smartphones">
+          <div className="rounded-md hover:shadow-sm bg-blue-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={Electronic}
+              alt="Electronics"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Electronics</h1>
+              <LuArrowBigRight size={16} />
             </div>
-            <div className="grid md:grid-cols-3">
-               <NavLink to={`/description/smartphones`}>
-                   <div className="flex my-3 bg-blue-200 gap-4 p-3 mx-3 rounded-md relative">
+          </div>
+        </NavLink>
 
-  <img
-    className="rounded-md"
-    src={Electronic}
-    alt="Electronic-gadgets"
-    width="100"
-  />
-
-  <div className="my-4">
-    <h1 className="text-xl font-medium">Electronics</h1>
-    <p>Gadgets & tech</p>
-
-    <button
-      className="absolute bottom-3 right-3"
-      onClick={() => setCategoryData("smartphones")}
-    >
-      <LuArrowBigRight  />
-    </button>
-  </div>
-
-</div>
-</NavLink>
-                {/* </div> */}
-                 <NavLink to={`/description/beauty`}>
-                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
-                    <img className="rounded-md" src={Beauty} alt="Beauty" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Beauty</h1>
-                    <p>Care & Skincare</p>
-                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("beauty")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
-                </NavLink>
-                
-                  <NavLink to={`/description/mens-shirts`}>
-                <div className="flex my-3 bg-green-100 gap-4 p-3 mx-3 relative rounded-md">
-                    <img className="rounded-md" src={books} alt="books" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Books</h1>
-                    <p>Read & discover</p>
-                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("mens-shirts")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
-               </NavLink>
-                 <NavLink to={`/description/sports-accessories`}>
-                <div className="flex my-3 bg-gray-100 gap-4 p-3 mx-3 relative rounded-md">
-                    <img className="rounded-md" src={Sports} alt="Sports" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Sports</h1>
-                    <p>Fitness & outdoor</p>
-                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("sports-accessories")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
-                </NavLink>
-
-                 <NavLink to={`/description/womens-dresses`}>
-                <div className="flex my-3 bg-pink-100 gap-4 p-3 mx-3 relative rounded-md">
-                    <img className="rounded-md" src={Shoping} alt="Shopping" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Fashion</h1>
-                    <p>Style & clothing</p>
-                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("womens-dresses")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
-                </NavLink>
-                    <NavLink to={`/description/furniture`}>
-                <div className="flex my-3 bg-yellow-100 gap-4 p-3 mx-3 relative rounded-md">
-                    <img className="rounded-md" src={Living} alt="Home&Living" width='100' />
-                    <div className="my-4">
-                    <h1 className="text-xl font-medium">Home & Living</h1>
-                    <p>Make home better</p>
-                      <button className="absolute bottom-3 right-3" onClick={()=>setCategoryData("furniture")}><LuArrowBigRight/></button>
-                    </div>
-                   
-                </div>
-                </NavLink>
+        <NavLink to="/description/womens-dresses">
+          <div className="rounded-md hover:shadow-sm bg-pink-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={Shoping}
+              alt="Fashion"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Fashion</h1>
+              <LuArrowBigRight size={16} />
             </div>
-         </div>
-    
-         </div>
+          </div>
+        </NavLink>
 
-  )
+        <NavLink to="/description/beauty">
+          <div className="rounded-md hover:shadow-sm bg-purple-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={Beauty}
+              alt="Beauty"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Beauty</h1>
+              <LuArrowBigRight size={16} />
+            </div>
+          </div>
+        </NavLink>
+
+        <NavLink to="/description/sports-accessories">
+          <div className="rounded-md hover:shadow-sm bg-green-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={Sports}
+              alt="Sports"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Sports</h1>
+              <LuArrowBigRight size={16} />
+            </div>
+          </div>
+        </NavLink>
+
+        <NavLink to="/description/mens-shirts">
+          <div className="rounded-md hover:shadow-sm bg-yellow-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={books}
+              alt="Books"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Books</h1>
+              <LuArrowBigRight size={16} />
+            </div>
+          </div>
+        </NavLink>
+
+        <NavLink to="/description/furniture">
+          <div className="rounded-md hover:shadow-sm bg-indigo-100 p-3 text-center">
+            <img
+              className="mx-auto h-16 w-20 rounded-md object-contain"
+              src={Living}
+              alt="Home and Living"
+            />
+            <div className="mt-2 flex items-center justify-between px-2">
+              <h1 className="text-sm font-medium">Home & Living</h1>
+              <LuArrowBigRight size={16} />
+            </div>
+          </div>
+        </NavLink>
+
+      </div>
+    </div>
+  );
 }
 
-export default Category
+export default Category;

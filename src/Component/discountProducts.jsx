@@ -4,7 +4,7 @@ import { discountProduct } from "../API/Api"
 
 function DiscountProducts() {
 
-    const {data:categoryFirst,isError,isLoading}=useQuery({
+    const {data:categoryFirst,isError,error,isLoading}=useQuery({
         queryKey:["discountPro"],
         queryFn:()=>discountProduct("smartPhones")
     })
@@ -40,7 +40,7 @@ function DiscountProducts() {
    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-4 my-5">
 
   {/* Electronics Banner */}
-  <div className="bg-purple-300 rounded-xl overflow-hidden">
+  <div className="bg-indigo-100  rounded-xl overflow-hidden">
     {productFirst.map((item) => (
       <div key={item.id} className="flex items-center justify-between px-5 py-4 ">
 
@@ -57,7 +57,7 @@ function DiscountProducts() {
             Latest gadgets, best prices
           </p>
 
-          <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-2 rounded-full">
+          <button className="mt-2 hover:shadow-sm cursor-pointer bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-2 rounded-full">
             Shop Now →
           </button>
         </div>
@@ -73,7 +73,7 @@ function DiscountProducts() {
   </div>
 
   {/* Fashion Banner */}
-  <div className="bg-orange-100 rounded-xl overflow-hidden">
+  <div className="bg-blue-100 rounded-xl overflow-hidden">
     {productSecond.map((item) => (
       <div key={item.id} className="flex items-center justify-between px-5 py-4 ">
 
@@ -90,7 +90,7 @@ function DiscountProducts() {
             Style that suits you
           </p>
 
-          <button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-2 rounded-full ">
+          <button className="mt-2 hover:shadow-sm cursor-pointer bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-4 py-2 rounded-full ">
             Shop Now →
           </button>
         </div>

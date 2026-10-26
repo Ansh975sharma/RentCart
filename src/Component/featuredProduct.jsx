@@ -1,8 +1,19 @@
 import { useQuery } from "@tanstack/react-query"
 import { fetchApi } from "../API/Api"
 import { FaStar } from "react-icons/fa"
+import { useSelector,useDispatch } from "react-redux"
+import { addProduct } from "../Features/Slice"
 function FeaturedProduct() {
-const {data, isLoading,isError}= useQuery({
+  const cart=useSelector((state)=>state.cart.cart)
+  const dispatch=useDispatch()
+
+  const handleProduct=()=>{
+    dispatch(addProduct({
+      Product:feature
+    }))
+  }
+ 
+const {data, isLoading,isError,error}= useQuery({
     queryKey:["products"],
     queryFn:()=>fetchApi()
  })
@@ -15,6 +26,9 @@ const {data, isLoading,isError}= useQuery({
     return <p>Error:{error}</p>
  }
 
+
+
+
  const feature=   data.products.filter((item)=>{
     return(
              item.rating>=3
@@ -22,7 +36,7 @@ const {data, isLoading,isError}= useQuery({
         })
   return (
 
-    <div>
+    <div className=" ring-1 ring-gray-100 rounded-md mx-5 my-10 shadow-sm">
         <div className="mx-6 my-3">
         <h1 className="text-2xl font-medium">Featured Products</h1>
        
@@ -39,7 +53,7 @@ const {data, isLoading,isError}= useQuery({
             
           
                
-                    <div className=" shadow-md rounded-md w-fit gap-3 p-2 hover:shadow-2xl   mx-6">
+                    <div className=" shadow-sm rounded-md w-fit gap-3 ring-1 ring-gray-100 bg-blue-50 p-2 hover:shadow-md   m-6">
                       <div className="bg-black/6 rounded-md">
                 <img src={item.thumbnail} alt="images" width="200px"   className="object-fit  "/>
                   <p className="flex mx-2 gap-2"><FaStar className="my-1 text-amber-300 "/><span>{item.rating}</span></p>
@@ -56,7 +70,7 @@ const {data, isLoading,isError}= useQuery({
                <p className="text-green-600">{item.discountPercentage}%off</p>
              </div>
                </div>
-                 <button className="bg-blue-500 rounded-md w-full text-white px-3 py-1 ">Add to cart</button>
+                 <button className="bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-md w-full text-white px-3 py-1 " onClick={()=>handleProduct()}>Add to cart</button>
               </div>
            
            
