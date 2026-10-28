@@ -3,6 +3,7 @@
  import Home from "./Pages/Home"
  import Main from "./Pages/Main"
 import Description from "./Component/Description"
+import Cart from "./Component/cart"
  function App() {
 const query = new QueryClient()
 
@@ -15,6 +16,7 @@ const query = new QueryClient()
         <Route  element={<Main/>}>
         <Route path="/" element={<Home/>}></Route>/
               <Route path="/description/:category" element={<Description/>}></Route>
+              <Route path="/cart" element={<Cart/>}/>
         </Route>
      
       </Routes>

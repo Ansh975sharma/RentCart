@@ -11,8 +11,9 @@ function FeaturedProduct() {
 
   const handleProduct=(id)=>{
    const product=cart.some((data)=>data.id===id)
-   if(!product){
-    const addItem=feature.filter((item)=>{
+  
+   if(product===false){
+    const addItem=feature.find((item)=>{
      
   return (
     item.id===id
@@ -21,12 +22,12 @@ function FeaturedProduct() {
 })
    
   
-    dispatch(addProduct({
+    dispatch(addProduct(
       
-         Product:addItem
+        addItem
       
      
-    }))
+    ))
   }
   }
   console.log(cart)
