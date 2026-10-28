@@ -3,15 +3,34 @@ import { fetchApi } from "../API/Api"
 import { FaStar } from "react-icons/fa"
 import { useSelector,useDispatch } from "react-redux"
 import { addProduct } from "../Features/Slice"
+
+
 function FeaturedProduct() {
   const cart=useSelector((state)=>state.cart.cart)
   const dispatch=useDispatch()
 
-  const handleProduct=()=>{
+  const handleProduct=(id)=>{
+   const product=cart.some((data)=>data.id===id)
+   if(!product){
+    const addItem=feature.filter((item)=>{
+     
+  return (
+    item.id===id
+  )
+
+})
+   
+  
     dispatch(addProduct({
-      Product:feature
+      
+         Product:addItem
+      
+     
     }))
   }
+  }
+  console.log(cart)
+
  
 const {data, isLoading,isError,error}= useQuery({
     queryKey:["products"],
@@ -28,12 +47,12 @@ const {data, isLoading,isError,error}= useQuery({
 
 
 
-
- const feature=   data.products.filter((item)=>{
+ const feature=data.products.filter((item)=>{
     return(
              item.rating>=3
     )
         })
+        console.log(feature.id)
   return (
 
     <div className=" ring-1 ring-gray-100 rounded-md mx-5 my-10 shadow-sm">
@@ -70,7 +89,7 @@ const {data, isLoading,isError,error}= useQuery({
                <p className="text-green-600">{item.discountPercentage}%off</p>
              </div>
                </div>
-                 <button className="bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-md w-full text-white px-3 py-1 " onClick={()=>handleProduct()}>Add to cart</button>
+                 <button className="bg-blue-500 hover:bg-blue-700 cursor-pointer rounded-md w-full text-white px-3 py-1 " onClick={()=>handleProduct(item.id)}>Add to cart</button>
               </div>
            
            

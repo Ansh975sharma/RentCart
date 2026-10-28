@@ -8,7 +8,7 @@ import {LuHouse,LuPhone,LuCuboid,LuUser,LuInfo,LuShoppingCart,LuHeart,LuSearch,}
 function Navbar() {
   const [menu, setMenu] = useState(false);
   const cart=useSelector((state)=>state.cart.cart)
-console.log(cart)
+
   return (
     <nav className="bg-blue-950 text-white px-4 py-3">
       <div className="flex items-center justify-between gap-4">
