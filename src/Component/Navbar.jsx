@@ -16,7 +16,7 @@ function Navbar() {
         
         <h1 className="flex  items-center gap-2 text-xl font-bold">
           <LuShoppingCart size={26} />
-          E-Cart
+         E-Cart
         </h1>
 
        

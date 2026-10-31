@@ -5,6 +5,7 @@ import { useSelector,useDispatch } from "react-redux"
 import { addProduct } from "../Features/Slice"
 
 
+
 function FeaturedProduct() {
   const cart=useSelector((state)=>state.cart.cart)
   const dispatch=useDispatch()
@@ -25,12 +26,11 @@ function FeaturedProduct() {
     dispatch(addProduct(
       
         addItem
-      
-     
+    
+
     ))
   }
   }
-  console.log(cart)
 
  
 const {data, isLoading,isError,error}= useQuery({
@@ -53,7 +53,11 @@ const {data, isLoading,isError,error}= useQuery({
              item.rating>=3
     )
         })
-        console.log(feature.id)
+    
+
+
+
+
   return (
 
     <div className=" ring-1 ring-gray-100 rounded-md mx-5 my-10 shadow-sm">
@@ -64,6 +68,8 @@ const {data, isLoading,isError,error}= useQuery({
     </div>
 
     <div className=" grid grid-cols-2 md:grid-cols-4 ">
+
+
 
 
 {
